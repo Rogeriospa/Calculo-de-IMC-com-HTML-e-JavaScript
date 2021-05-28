@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta content="text/html" charset="UTF-8">
+        <title>Cálcular de IMC</title>
+        <script type="text/javascript">
+        
+        function calcular () {
+            var nome = document.form.nome.value;
+            var peso = document.form.peso.value;
+            var altura = document.form.altura.value;
+            var imc;
+            var situacao = "";
+
+            imc = peso / (altura * altura);
+            imc = parseInt (imc * 100) / 100
+
+            if (imc < 18.5) {
+            situacao = "Abaixo do Peso.";
+            }
+            else {
+                if (imc < 24.9) {
+                    situacao = "No Peso Normal.";
+                }
+                else {
+                    if (imc < 29.9){
+                        situacao = "Com Sobrepeso.";
+                    }
+                    else {
+                        if (imc < 34.9) {
+                            situacao = "Em obesidade Grau 1.";
+                        }
+                        else {
+                            if (imc < 39.9) {
+                                situacao = "Em obesidade Grau 2";
+                            }
+                            else {
+                                situacao = "Em obesidade Grau 3";
+                            }
+                        }
+                    }
+                }
+            }
+        alert ("Oi, " + nome + " seu IMC é: " + imc + " e você está: " + situacao);
+        }
+        </script>
+    </head>
+    <body>
+        <h2>Indíce de Massa Corporal</h2>
+        <div id="t1" align = "left">
+            <form name="form">
+                <p>Seu nome: <input type="text" name="nome" maxlength="50"></p>
+                <p>Seu peso: <input type="text" name="peso" size="8"></p>
+                <p>Sua altura: <input type="text" name="altura" size="8"></p>
+                <p><input onclick="calcular()" type="button" value="Calcular" name="botao"> <input type="reset" value="Limpar"</p>
+            </form>
+        </div>
+    </body>
+</html>
